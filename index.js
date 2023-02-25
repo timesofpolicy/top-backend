@@ -9,7 +9,6 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const multer = require('multer');
 const fs = require('fs');
-const { addYears } = require('date-fns');
 /* Loading the environment variables from the .env file. */ 
 // updating this file
 require("dotenv").config();
@@ -38,6 +37,8 @@ mongoose
 
 // mongoose.connect('mongodb+srv://basant:slrM8uRMOzinNP7e@top-blog-v4.pd5bols.mongodb.net/?retryWrites=true&w=majority');
 mongoose.set('strictQuery', true);
+
+app.get('/hello', (_, res) => res.send('Hello this server is running!!'));
 
 app.post('/register',async (req, res) => {
     const {name, email, password} = req.body;

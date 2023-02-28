@@ -20,6 +20,12 @@ const secret = 'bkhjdbfcknj2e2kenfdsjh87er234r73bwdhs7';
 
 app.use(cors({credentials: true, origin: 'https://www.timesofpolicy.com/'}));
 // app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+ })
+ 
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));

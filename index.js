@@ -18,13 +18,18 @@ const uploadMiddleware = multer({ dest: 'uploads/' })
 var salt = bcrypt.genSaltSync(10);
 const secret = 'bkhjdbfcknj2e2kenfdsjh87er234r73bwdhs7';
 
-app.use(cors({credentials: true, origin: 'https://top-backend.onrender.com'}));
+app.use(cors({
+    credentials: true, 
+    origin: 'https://top-backend.onrender.com',
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+}));
 // app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
- })
+// app.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//  })
 
 app.use(express.json());
 app.use(cookieParser());

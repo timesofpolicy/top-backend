@@ -20,7 +20,7 @@ const secret = 'bkhjdbfcknj2e2kenfdsjh87er234r73bwdhs7';
 
 app.use(cors({
     credentials: true, 
-    origin: 'https://top-backend.onrender.com',
+    origin: 'https://www.timesofpolicy.com',
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
 }));
